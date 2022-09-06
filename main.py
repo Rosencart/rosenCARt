@@ -26,7 +26,7 @@ from PIL import ImageTk, Image
 
 data_dir = 'recourse'
 train_path = 'recourse/Train'
-test_path = 'recourse/Test'
+test_path = 'Test'
 
 # Resizing the images to 30x30x3
 IMG_HEIGHT = 30
