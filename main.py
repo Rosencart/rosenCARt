@@ -217,7 +217,7 @@ test_labels
 
 # predictions = model.predict_classes(test_data)
 predictions = np.argmax(model.predict(test_data), axis=1)
-print("accuracy: ", accuracy_score(test_labels, predictions))
+print("accuracy: ", (accuracy_score(test_labels, predictions)*100))
 
 model.save('traffic_signal_classifier.h5')
 
