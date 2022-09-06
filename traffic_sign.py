@@ -102,8 +102,8 @@ for img in imgs:
 
 X_test = np.array(data)
 
-pred = model.predict_classes(X_test)
+pred = model.predict(X_test)
 
 # Accuracy with the test data
 
-print(accuracy_score(labels, pred))
+# print(accuracy_score(labels, pred))
