@@ -1,28 +1,21 @@
 import os
 import random
-import warnings
-
-import numpy
-import numpy as np
-
-import pandas as pd
-import tensorflow as tf
-import matplotlib.pyplot as plt
-from keras.models import load_model
-from keras.utils import to_categorical
-from keras.layers import Conv2D, Dense, Flatten, MaxPool2D, Dropout
-
 import tkinter as tk
+import warnings
 from tkinter import *
 from tkinter import filedialog
 
+import matplotlib.pyplot as plt
+import numpy
+import numpy as np
+import pandas as pd
+import tensorflow as tf
+from PIL import ImageTk, Image
+from keras.layers import Conv2D, Dense, Flatten, MaxPool2D, Dropout
+from keras.models import load_model
 from matplotlib.image import imread
-
 from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
-
-from PIL import ImageTk, Image
-
 
 data_dir = 'recourse'
 train_path = 'recourse/Train'
