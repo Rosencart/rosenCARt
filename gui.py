@@ -1,8 +1,9 @@
 import tkinter as tk
-from tkinter import filedialog
 from tkinter import *
-from PIL import ImageTk, Image
+from tkinter import filedialog
+
 import numpy
+from PIL import ImageTk, Image
 from keras.models import load_model
 
 
