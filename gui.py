@@ -8,8 +8,6 @@ from keras.models import load_model
 
 
 class GUI:
-    global label_packed
-
     def __init__(self):
         self.model = load_model('traffic_signal_classifier.h5')
 
