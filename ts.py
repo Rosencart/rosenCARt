@@ -6,11 +6,9 @@ import numpy as np
 import cv2
 import keras
 import seaborn as sns
-from keras.layers import Dense, Dropout, Flatten, Input
-from keras.layers import Conv2D, MaxPooling2D
-from keras.layers import BatchNormalization
 from keras.optimizers import Adam
 from keras.models import Sequential
+from keras.layers import BatchNormalization, Conv2D, MaxPooling2D, Dense, Dropout, Flatten, Input
 
 # LOADING DATASET
 data_dir = os.path.abspath('recourse/Train')
