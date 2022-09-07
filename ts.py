@@ -1,11 +1,11 @@
 import os
-import pandas as pd
-from imageio import imread
-import math
-import numpy as np
 import cv2
-import keras
+import numpy as np
+import pandas as pd
 import seaborn as sns
+from imageio import imread
+
+import keras
 from keras.optimizers import Adam
 from keras.models import Sequential
 from keras.layers import BatchNormalization, Conv2D, MaxPooling2D, Dense, Dropout, Flatten, Input
