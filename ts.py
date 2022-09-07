@@ -1,6 +1,6 @@
 import os
 import pandas as pd
-#from scipy.misc import imread
+from imageio import imread
 import math
 import numpy as np
 import cv2
