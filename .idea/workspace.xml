@@ -5,11 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9f4248f8-858a-4b6a-af14-2cc0d473f935" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/other.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/other.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/rosenCARt.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/rosenCARt.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/webResources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webResources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gui.py" beforeDir="false" afterPath="$PROJECT_DIR$/gui.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recourse/Meta.csv" beforeDir="false" afterPath="$PROJECT_DIR$/recourse/Meta.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recourse/Test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/recourse/Test.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recourse/Train.csv" beforeDir="false" afterPath="$PROJECT_DIR$/recourse/Train.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/traffic_sign.py" beforeDir="false" afterPath="$PROJECT_DIR$/traffic_sign.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ts.py" beforeDir="false" afterPath="$PROJECT_DIR$/ts.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +124,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="428f8822-14da-4af7-b8e3-c2c979548b4f" name="Changes" comment="" />
+      <changelist id="9f4248f8-858a-4b6a-af14-2cc0d473f935" name="Changes" comment="" />
       <created>1662450082080</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -125,6 +136,7 @@
       <workItem from="1662461998940" duration="105000" />
       <workItem from="1662462116096" duration="437000" />
       <workItem from="1662462655862" duration="1505000" />
+      <workItem from="1662539267617" duration="1572000" />
     </task>
     <servers />
   </component>
