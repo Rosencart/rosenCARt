@@ -57,21 +57,21 @@ class GUI:
                         43: 'End no passing veh > 3.5 tons'}
 
         # initialise GUI
-        top = tk.Tk()
-        top.geometry('800x600')
-        top.title('Traffic sign classification')
-        top.configure(background='#CDCDCD')
+        self.top = tk.Tk()
+        self.top.geometry('800x600')
+        self.top.title('Traffic sign classification')
+        self.top.configure(background='#CDCDCD')
 
-        self.label = Label(top, background='#CDCDCD', font=('arial', 15, 'bold'))
-        self.sign_image = Label(top)
+        self.label = Label(self.top, background='#CDCDCD', font=('arial', 15, 'bold'))
+        self.sign_image = Label(self.top)
 
-        upload = Button(top, text="Upload an image", command=self.upload_image, padx=10, pady=5)
+        upload = Button(self.top, text="Upload an image", command=self.upload_image, padx=10, pady=5)
         upload.configure(background='#364156', foreground='white', font=('arial', 10, 'bold'))
 
         upload.pack(side=BOTTOM, pady=50)
         self.sign_image.pack(side=BOTTOM, expand=True)
         self.label.pack(side=BOTTOM, expand=True)
-        heading = Label(top, text="Know Your Traffic Sign", pady=20, font=('arial', 20, 'bold'))
+        heading = Label(self.top, text="Know Your Traffic Sign", pady=20, font=('arial', 20, 'bold'))
         heading.configure(background='#CDCDCD', foreground='#364156')
         heading.pack()
 
@@ -81,7 +81,7 @@ class GUI:
         image = numpy.expand_dims(image, axis=0)
         image = numpy.array(image)
         print(image.shape)
-        pred = self.model.predict_classes([image])[0]
+        pred = self.model.predict([image])[0]
         sign = self.classes[pred + 1]
         print(sign)
         self.label.configure(foreground='#011638', text=sign)
