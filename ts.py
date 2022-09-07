@@ -12,17 +12,17 @@ from keras.layers import BatchNormalization
 from keras.optimizers import Adam
 from keras.models import Sequential
 
-### LOADING DATASET
+# LOADING DATASET
 data_dir = os.path.abspath('recourse/Train')
 os.path.exists(data_dir)
 
 
-### Function to resize the images using open cv
+# Function to resize the images using open cv
 def resize_cv(im):
     return cv2.resize(im, (64, 64), interpolation=cv2.INTER_LINEAR)
 
 
-### Loading datset
+# Loading datset
 list_images = []
 output = []
 for dir in os.listdir(data_dir):
@@ -39,7 +39,7 @@ for dir in os.listdir(data_dir):
         list_images.append(img)
         output.append(row[1].ClassId)
 
-### Plotting the dataset
+# Plotting the dataset
 fig = sns.distplot(output, kde=False, bins=43, hist=True, hist_kws=dict(edgecolor="black", linewidth=2))
 fig.set(title="Traffic signs frequency graph",
         xlabel="ClassId",
@@ -49,13 +49,13 @@ input_array = np.stack(list_images)
 
 train_y = keras.utils.np_utils.to_categorical(output)
 
-### Randomizing the dataset
+# Randomizing the dataset
 randomize = np.arange(len(input_array))
 np.random.shuffle(randomize)
 x = input_array[randomize]
 y = train_y[randomize]
 
-### Splitting the dataset in train, validation, test set
+# Splitting the dataset in train, validation, test set
 split_size = int(x.shape[0] * 0.6)
 train_x, val_x = x[:split_size], x[split_size:]
 train1_y, val_y = y[:split_size], y[split_size:]
@@ -64,7 +64,7 @@ split_size = int(val_x.shape[0] * 0.5)
 val_x, test_x = val_x[:split_size], val_x[split_size:]
 val_y, test_y = val_y[:split_size], val_y[split_size:]
 
-### Building the model
+# Building the model
 hidden_num_units = 2048
 hidden_num_units1 = 1024
 hidden_num_units2 = 128
@@ -114,12 +114,12 @@ model = Sequential([
 
 model.compile(loss='categorical_crossentropy', optimizer=Adam(lr=1e-4), metrics=['accuracy'])
 
-### Training the model
+# Training the model
 trained_model_conv = model.fit(train_x.reshape(-1, 64, 64, 3), train1_y, epochs=epochs, batch_size=batch_size,
                                validation_data=(val_x, val_y))
 
-### Prdicting the class
+# Prdicting the class
 pred = model.predict_classes(test_x)
 
-### Evaluating the model
+# Evaluating the model
 model.evaluate(test_x, test_y)
