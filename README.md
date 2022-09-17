@@ -13,7 +13,6 @@ the installation description follows
 
 ## To-Do
 
-<iframe width="768" height="432" src="https://miro.com/app/live-embed/uXjVPdV5Psk=/?moveToViewport=-751,-368,1953,976&embedId=163959394993" frameborder="0" scrolling="no" allowfullscreen></iframe>
 
 ## Information
 
