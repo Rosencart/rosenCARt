@@ -1,3 +1,5 @@
+from settings import Settings
+
 import os
 import random
 import tkinter as tk
@@ -29,51 +31,6 @@ channels = 3
 NUM_CATEGORIES = len(os.listdir(train_path))
 NUM_CATEGORIES
 
-# Label Overview
-classes = {0: 'Speed limit (20km/h)',
-           1: 'Speed limit (30km/h)',
-           2: 'Speed limit (50km/h)',
-           3: 'Speed limit (60km/h)',
-           4: 'Speed limit (70km/h)',
-           5: 'Speed limit (80km/h)',
-           6: 'End of speed limit (80km/h)',
-           7: 'Speed limit (100km/h)',
-           8: 'Speed limit (120km/h)',
-           9: 'No passing',
-           10: 'No passing veh over 3.5 tons',
-           11: 'Right-of-way at intersection',
-           12: 'Priority road',
-           13: 'Yield',
-           14: 'Stop',
-           15: 'No vehicles',
-           16: 'Veh > 3.5 tons prohibited',
-           17: 'No entry',
-           18: 'General caution',
-           19: 'Dangerous curve left',
-           20: 'Dangerous curve right',
-           21: 'Double curve',
-           22: 'Bumpy road',
-           23: 'Slippery road',
-           24: 'Road narrows on the right',
-           25: 'Road work',
-           26: 'Traffic signals',
-           27: 'Pedestrians',
-           28: 'Children crossing',
-           29: 'Bicycles crossing',
-           30: 'Beware of ice/snow',
-           31: 'Wild animals crossing',
-           32: 'End speed + passing limits',
-           33: 'Turn right ahead',
-           34: 'Turn left ahead',
-           35: 'Ahead only',
-           36: 'Go straight or right',
-           37: 'Go straight or left',
-           38: 'Keep right',
-           39: 'Keep left',
-           40: 'Roundabout mandatory',
-           41: 'End of no passing',
-           42: 'End no passing veh > 3.5 tons'}
-
 folders = os.listdir(train_path)
 
 train_number = []
@@ -82,7 +39,7 @@ class_num = []
 for folder in folders:
     train_files = os.listdir(f'{train_path}/' + folder)
     train_number.append(len(train_files))
-    class_num.append(classes[int(folder)])
+    class_num.append(Settings.classes[int(folder)])
 
 # Sorting the dataset on the basis of number of images in each class
 zipped_lists = zip(train_number, class_num)
@@ -135,7 +92,6 @@ sr = np.array(img)
 plt.imshow(img)
 plt.show()
 
-
 x_train, x_test, y_train, y_test = train_test_split(data, labels, test_size=0.1, random_state=10)
 
 print("training_shape: ", x_train.shape, y_train.shape)
@@ -185,7 +141,6 @@ plt.ylabel("Loss")
 plt.legend()
 plt.show()
 
-
 test = pd.read_csv("recourse/Test.csv")
 test_labels = test['ClassId'].values
 test_img_path = "recourse"
@@ -203,63 +158,19 @@ for img in test_imgs:
 test_data = np.array(test_data)
 print(test_data.shape)
 
-
 warnings.filterwarnings("ignore")
 test_labels = test['ClassId'].values
 test_labels
 
 # predictions = model.predict_classes(test_data)
 predictions = np.argmax(model.predict(test_data), axis=1)
-print("accuracy: ", (accuracy_score(test_labels, predictions)*100))
+print("accuracy: ", (accuracy_score(test_labels, predictions) * 100))
 
 model.save('traffic_signal_classifier.h5')
 
-
 model = load_model('./traffic_signal_classifier.h5')
 # dictionary to label all traffic signs class.
-classes = {1: 'Speed limit (20km/h)',
-           2: 'Speed limit (30km/h)',
-           3: 'Speed limit (50km/h)',
-           4: 'Speed limit (60km/h)',
-           5: 'Speed limit (70km/h)',
-           6: 'Speed limit (80km/h)',
-           7: 'End of speed limit (80km/h)',
-           8: 'Speed limit (100km/h)',
-           9: 'Speed limit (120km/h)',
-           10: 'No passing',
-           11: 'No passing veh over 3.5 tons',
-           12: 'Right-of-way at intersection',
-           13: 'Priority road',
-           14: 'Yield',
-           15: 'Stop',
-           16: 'No vehicles',
-           17: 'Veh > 3.5 tons prohibited',
-           18: 'No entry',
-           19: 'General caution',
-           20: 'Dangerous curve left',
-           21: 'Dangerous curve right',
-           22: 'Double curve',
-           23: 'Bumpy road',
-           24: 'Slippery road',
-           25: 'Road narrows on the right',
-           26: 'Road work',
-           27: 'Traffic signals',
-           28: 'Pedestrians',
-           29: 'Children crossing',
-           30: 'Bicycles crossing',
-           31: 'Beware of ice/snow',
-           32: 'Wild animals crossing',
-           33: 'End speed + passing limits',
-           34: 'Turn right ahead',
-           35: 'Turn left ahead',
-           36: 'Ahead only',
-           37: 'Go straight or right',
-           38: 'Go straight or left',
-           39: 'Keep right',
-           40: 'Keep left',
-           41: 'Roundabout mandatory',
-           42: 'End of no passing',
-           43: 'End no passing veh > 3.5 tons'}
+
 # initialise GUI
 top = tk.Tk()
 top.geometry('800x600')
@@ -276,7 +187,7 @@ def classify(file_path):
     image = numpy.expand_dims(image, axis=0)
     image = numpy.array(image)
     pred = model.predict([image])[0]
-    sign = classes[pred + 1]
+    sign = Settings.classes[pred + 1]
     print(sign)
     label.configure(foreground='#011638', text=sign)
 
