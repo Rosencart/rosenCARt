@@ -14,6 +14,10 @@ labels = []
 classes = 43
 cur_path = os.getcwd()
 
+
+epochs = 600
+
+
 # Retrieving the images and their labels
 for i in range(classes):
     path = os.path.join(cur_path, 'recourse\\Train', str(i))
@@ -62,7 +66,6 @@ model.add(Dense(43, activation='softmax'))
 # Compilation of the model
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
-epochs = 15
 history = model.fit(X_train, y_train, batch_size=32, epochs=epochs, validation_data=(X_test, y_test))
 model.save("my_model.h5")
 
